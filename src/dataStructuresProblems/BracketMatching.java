@@ -1,4 +1,4 @@
-package dataStructures;
+package dataStructuresProblems;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
