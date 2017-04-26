@@ -24,7 +24,7 @@ public class MinimumSpanningTree {
 		int[] weight = new int[GraphMatrix.MaxNum];//邻接矩阵某一行的权值
 		char[] vtempx = new char[GraphMatrix.MaxNum];//邻接矩阵某一行的临时顶点信息
 		//
-		//找到一条与顶点距离最近的路径
+		//找到所有与第一个顶点连通的的点
 		for(i = 1;i<gm.VertexNum;i++){
 			weight[i] = gm.EdgeWeight[0][i];
 			if(weight[i]==GraphMatrix.MaxValue){
@@ -35,9 +35,11 @@ public class MinimumSpanningTree {
 		}
 		vtempx[0] = USED;
 		weight[0] = GraphMatrix.MaxValue;
+		
 		for(i=1;i<gm.VertexNum;i++){
 			min=weight[0];
 			k=i;
+			//找到当前行最小的权值，及其下标
 			for(j=1;j<gm.VertexNum;j++){
 				if(weight[j]<min && vtempx[j]>0){
 					min=weight[j];
@@ -46,12 +48,16 @@ public class MinimumSpanningTree {
 			}
 			sum += min;
 			System.out.printf("(%c,%c),",vtempx[k],gm.Vertex[k]);
+			//把访问过的顶点做标记，权值写成最大
 			vtempx[k]=USED;
 			weight[k]=GraphMatrix.MaxValue;
+			//把下一个点和未访问的点之间的权值 以及 连通情况存进数组
+			//找到具有更小权值的未使用边
+			//vtempx[i] != 0 意味着没有被访问过
 			for(j=0;j<gm.VertexNum;j++){
 				if(gm.EdgeWeight[k][j]<weight[j] && vtempx[j] != 0){
-					weight[j]=gm.EdgeWeight[k][j];
 					vtempx[j]=gm.Vertex[k];
+					weight[j]=gm.EdgeWeight[k][j];
 				}
 			}
 		}
