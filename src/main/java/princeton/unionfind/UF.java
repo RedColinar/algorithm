@@ -1,10 +1,12 @@
 package princeton.unionfind;
 
-public interface UF {
+public abstract class UF {
 
-    void union(int p, int q);
+    public UF(int capacity) {}
 
-    boolean connected(int p, int q);
+    public abstract void union(int p, int q);
+
+    public abstract boolean connected(int p, int q);
 
     // int find(int p);
 
