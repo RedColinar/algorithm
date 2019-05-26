@@ -2,7 +2,7 @@ package princeton.unionfind;
 
 public abstract class UF {
 
-    public UF(int capacity) {}
+    UF(int capacity) {}
 
     public abstract void union(int p, int q);
 

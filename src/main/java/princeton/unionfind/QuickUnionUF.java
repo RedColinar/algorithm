@@ -1,10 +1,10 @@
 package princeton.unionfind;
 
-public class QuickFindUF extends UF {
+public class QuickUnionUF extends UF {
 
     final private int[] id;
 
-    public QuickFindUF(int capacity) {
+    public QuickUnionUF(int capacity) {
         super(capacity);
         id = new int[capacity];
         for (int i = 0; i < id.length; i++) {
@@ -12,18 +12,18 @@ public class QuickFindUF extends UF {
         }
     }
 
+    private int root(int i) {
+        while (i != id[i]) i = id[i];
+        return i;
+    }
+
     @Override
     public void union(int p, int q) {
-        int pid = id[p];
-        int qid = id[q];
-        if (pid == qid) return;
-        for (int i = 0; i < id.length; i++) {
-            if (id[i] == pid) id[i] = qid;
-        }
+        id[root(p)] = root(q);
     }
 
     @Override
     public boolean connected(int p, int q) {
-        return id[p] == id[q];
+        return root(p) == root(q);
     }
 }
