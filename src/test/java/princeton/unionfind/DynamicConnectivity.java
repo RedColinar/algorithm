@@ -1,10 +1,7 @@
-package priceton.unionfind;
+package princeton.unionfind;
 
 import princeton.std.StdIn;
 import princeton.std.StdOut;
-import princeton.unionfind.QuickFindUF;
-import princeton.unionfind.QuickUnionUF;
-import princeton.unionfind.UF;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
