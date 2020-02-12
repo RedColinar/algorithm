@@ -2,6 +2,11 @@ package princeton.sort.quick;
 
 import org.junit.Assert;
 import org.junit.Test;
+import princeton.sort.Resources;
+import princeton.sort.heap.HeapSort;
+
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class QuickSortTest {
 
@@ -11,11 +16,23 @@ public class QuickSortTest {
     }
 
     @Test
-    public void testSort() {
-        Comparable[] array = new Comparable[]{4, 1, 5, 3, 8, 6, 7, 9, 2, 0};
-        QuickSort.sort(array);
-        for (int i = 0; i < array.length; i++) {
-            Assert.assertEquals(i, array[i]);
+    public void sort() {
+        BufferedReader reader = Resources.getSortReader();
+        String line;
+        try {
+            while ((line = reader.readLine()) != null) {
+                String[] actual = line.split(",");
+                Integer[] actualInteger = Resources.getIntArray(actual);
+
+                String[] expect = reader.readLine().split(",");
+                Integer[] expectInteger = Resources.getIntArray(expect);
+
+                QuickSort.sort(actualInteger);
+
+                Assert.assertArrayEquals(expectInteger, actualInteger);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
