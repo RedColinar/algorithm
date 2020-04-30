@@ -3,13 +3,13 @@ package princeton.unionfind;
 import princeton.std.StdIn;
 import princeton.std.StdOut;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 
 public class DynamicConnectivity {
 
     public static void main(String[] args) {
-        setStdIn("E:\\algorithm\\src\\test\\java\\priceton\\unionfind\\tinyUF.txt");
+        System.setIn(ClassLoader.getSystemResourceAsStream("princeton/unionfind/tinyUF.txt"));
+        StdIn.resync();
 
         int N = StdIn.readInt();
         // UF uf = new QuickFindUF(N);
@@ -22,7 +22,8 @@ public class DynamicConnectivity {
             }
         }
 
-        setStdIn("E:\\algorithm\\src\\test\\java\\priceton\\unionfind\\testUF.txt");
+        System.setIn(ClassLoader.getSystemResourceAsStream("princeton/unionfind/testUF.txt"));
+        StdIn.resync();
         String answer = StdIn.readLine();
         StdOut.println(answer);
 
@@ -30,16 +31,6 @@ public class DynamicConnectivity {
             int q = StdIn.readInt();
             int p = StdIn.readInt();
             StdOut.print(uf.connected(p, q) + " ");
-        }
-    }
-
-    private static void setStdIn(String path) {
-        try {
-            FileInputStream input = new FileInputStream(path);
-            System.setIn(input);
-            StdIn.resync();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -2,7 +2,7 @@ package princeton.sort.heap;
 
 import org.junit.Assert;
 import org.junit.Test;
-import princeton.sort.Resources;
+import princeton.Resources;
 
 import java.io.BufferedReader;
 import java.io.IOException;

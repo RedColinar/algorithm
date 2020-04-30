@@ -1,4 +1,4 @@
-package princeton.sort;
+package princeton;
 
 import org.junit.Test;
 
