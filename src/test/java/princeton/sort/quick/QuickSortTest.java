@@ -11,11 +11,6 @@ import java.io.IOException;
 public class QuickSortTest {
 
     @Test
-    public void slice() {
-
-    }
-
-    @Test
     public void sort() {
         BufferedReader reader = Resources.getSortReader();
         String line;
