@@ -1,5 +1,6 @@
 package princeton.sort.heap;
 
+@SuppressWarnings("all")
 public class HeapSort {
     public static <T> void sort(Comparable<T>[] array) {
         // 堆排序， 数组第一个元素空置
